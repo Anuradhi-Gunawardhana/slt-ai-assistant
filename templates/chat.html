@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SLT AI Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- CSRF token for JS API requests -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div>
+
+                <h1>SLT AI Assistant</h1>
+
+                <p>
+                    Welcome, {{ username }}
+                </p>
+
+                <p>
+                    Role: {{ role | upper }}
+                </p>
+
+            </div>
+
+            <!-- Secure POST logout -->
+            <form action="{{ url_for('logout') }}"
+                  method="POST">
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="{{ csrf_token }}"
+                >
+
+                <button type="submit" class="logout">
+                    Logout
+                </button>
+
+            </form>
+
+        </header>
+
+
+        <!-- Chat messages -->
+
+        <main id="chat-box">
+
+            <div class="message bot">
+
+                Hello {{ username }}!
+
+                Welcome to the SLT Demo Knowledge Assistant.
+
+                How can I help you today?
+
+            </div>
+
+        </main>
+
+
+        <!-- Chat input -->
+
+        <form id="chat-form">
+
+            <input
+                type="text"
+                id="message"
+                placeholder="Ask me something..."
+                autocomplete="off"
+                maxlength="1000"
+                required
+            >
+
+            <button type="submit">
+                Send
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Chat JS -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

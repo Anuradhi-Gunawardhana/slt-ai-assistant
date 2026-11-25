@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SLT AI Assistant - Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h1>SLT AI Assistant</h1>
+
+        <p>Sign in to access your knowledge assistant.</p>
+
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form action="{{ url_for('login') }}"
+              method="POST">
+
+            <!-- CSRF security token -->
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token }}"
+            >
+
+            <label for="username">Username</label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">
+                Sign In
+            </button>
+
+        </form>
+
+        <div class="demo-info">
+
+            <h3>Demo Accounts</h3>
+
+            <p>Customer: customer_demo</p>
+
+            <p>Staff: staff_demo</p>
+
+            <p>Admin: admin_demo</p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

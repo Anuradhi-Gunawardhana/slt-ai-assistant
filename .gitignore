@@ -1,0 +1,49 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Local databases and backups
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.bak
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# IDE settings
+.vscode/
+.idea/
+
+# Test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+*.pem
+*.key
+*.db-*
+*.sqlite-*
